@@ -26,10 +26,7 @@ public class urinals {
 	
 	static void usingFile() throws IOException
 	{
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Enter the file path:");
-		String filePath = reader.readLine();
-		File file = new File(filePath);
+		File file = new File(System.getProperty("user.dir")+"\\src\\urinal.dat");
 		BufferedReader fileReader = new BufferedReader(new FileReader(file));
 		boolean output = true;
 		int counter = 1;
@@ -69,7 +66,6 @@ public class urinals {
 		{
 			count = countUrinals(st);
 			writer.write(Integer.toString(count)+System.lineSeparator());
-			writer.write("1");
 		}
 		writer.close();
 		System.out.println("Done");

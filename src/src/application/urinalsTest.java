@@ -19,7 +19,7 @@ class urinalsTest {
 	void outputFileCreationTest() {
 		// This checks that the output file exists after execution of usingFile method
 		assertDoesNotThrow(()->{urinals.usingFile();});
-		File file = new File(System.getProperty("user.dir")+"rule.txt");
+		File file = new File(System.getProperty("user.dir")+"\\rule.txt");
 		assertEquals(true, file.exists());
 	}
 	
