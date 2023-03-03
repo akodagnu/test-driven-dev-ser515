@@ -22,4 +22,11 @@ class urinalsTest {
 		File file = new File(System.getProperty("user.dir")+"rule.txt");
 		assertEquals(true, file.exists());
 	}
+	
+	@Test
+	void checkUrinalCount()
+	{
+		int answer = urinals.countUrinals("10001");
+		assertEquals(1,answer);
+	}
 }

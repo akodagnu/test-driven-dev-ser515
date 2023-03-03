@@ -2,6 +2,16 @@ package application;
 import java.io.*;
 
 public class urinals {
+	static int countUrinals(String s)
+	{
+		int c = 0;
+		for(int i=1;i<s.length();i++)
+		{
+			if(s.charAt(i)=='0' && s.charAt(i-1)=='0' && s.charAt(i+1)=='0')
+				c++;
+		}
+		return c;
+	}
 	
 	static void usingKeyboard()
 	{
@@ -15,8 +25,6 @@ public class urinals {
 		String filePath = reader.readLine();
 		File file = new File(filePath);
 		BufferedReader fileReader = new BufferedReader(new FileReader(file));
-		//String st;
-		//while((st=fileReader.readLine())!= null)
 		boolean output = true;
 		int counter = 1;
 		File out = new File(System.getProperty("user.dir")+"\\rule.txt");
@@ -48,7 +56,15 @@ public class urinals {
 		}
 		out.createNewFile();
 		FileWriter writer = new FileWriter(out);
-		writer.write("This is working!");
+		String st;
+		int count;
+		//writer.write("");
+		while((st=fileReader.readLine())!= null)
+		{
+			count = countUrinals(st);
+			writer.write(Integer.toString(count)+System.lineSeparator());
+			writer.write("1");
+		}
 		writer.close();
 		System.out.println("Done");
 	}
@@ -67,6 +83,5 @@ public class urinals {
 		case 2: usingFile();break;
 		default: System.out.println("Invalid choice");break;
 		}
-
 	}
 }
