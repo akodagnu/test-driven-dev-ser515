@@ -28,5 +28,7 @@ class urinalsTest {
 	{
 		int answer = urinals.countUrinals("10001");
 		assertEquals(1,answer);
+		answer = urinals.countUrinals("1001");
+		assertEquals(0, answer);
 	}
 }
