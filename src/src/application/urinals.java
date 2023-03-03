@@ -9,6 +9,8 @@ public class urinals {
 		{
 			if(s.charAt(i)=='0' && s.charAt(i-1)=='0' && s.charAt(i+1)=='0')
 				c++;
+			if(s.charAt(i)=='1' && (s.charAt(i-1)=='1' ||s.charAt(i+1)=='1'))
+				return -1;
 		}
 		return c;
 	}
