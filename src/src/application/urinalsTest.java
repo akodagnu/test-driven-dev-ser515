@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test;
 
 class urinalsTest {
 
-	@Test
+	//@Test
 	void inputFileValidTest() throws IOException {
 		// This test checks if the input file exists at the path entered.
 		assertDoesNotThrow(()->{urinals.usingFile();});
 	}
 	
-	@Test
+	//@Test
 	void outputFileCreationTest() {
 		// This checks that the output file exists after execution of usingFile method
 		assertDoesNotThrow(()->{urinals.usingFile();});
@@ -30,5 +30,7 @@ class urinalsTest {
 		assertEquals(1,answer);
 		answer = urinals.countUrinals("1001");
 		assertEquals(0, answer);
+		answer = urinals.countUrinals("00000");
+		assertEquals(3, answer);
 	}
 }

@@ -5,7 +5,7 @@ public class urinals {
 	static int countUrinals(String s)
 	{
 		int c = 0;
-		for(int i=1;i<s.length();i++)
+		for(int i=1;i<s.length()-1;i++)
 		{
 			if(s.charAt(i)=='0' && s.charAt(i-1)=='0' && s.charAt(i+1)=='0')
 				c++;
