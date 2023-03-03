@@ -3,12 +3,6 @@ import java.io.*;
 
 public class urinals {
 	
-	boolean goodString(String str)
-	{
-		System.out.println("Not yet implemented");
-		return true;
-	}
-	
 	static void usingKeyboard()
 	{
 		System.out.println("Not yet implemented");
@@ -23,7 +17,40 @@ public class urinals {
 		BufferedReader fileReader = new BufferedReader(new FileReader(file));
 		//String st;
 		//while((st=fileReader.readLine())!= null)
-		
+		boolean output = true;
+		int counter = 1;
+		File out = new File(System.getProperty("user.dir")+"\\rule.txt");
+		while(output)
+		{
+			if(counter == 1)
+			{
+				if(out.exists() && !out.isDirectory())
+				{
+					counter++;
+				}
+				else
+				{
+					output = false;
+				}
+			}
+			else
+			{
+				out = new File(System.getProperty("user.dir")+"\\rule"+Integer.toString(counter)+".txt");
+				if(out.exists() && !out.isDirectory())
+				{
+					counter++;
+				}
+				else
+				{
+					output = false;
+				}
+			}
+		}
+		out.createNewFile();
+		FileWriter writer = new FileWriter(out);
+		writer.write("This is working!");
+		writer.close();
+		System.out.println("Done");
 	}
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
