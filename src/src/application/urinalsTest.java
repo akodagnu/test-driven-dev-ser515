@@ -39,4 +39,15 @@ class urinalsTest {
 		answer = urinals.countUrinals("011");
 		assertEquals(-1, answer);
 	}
+	
+	@Test
+	void invalidStringInput()
+	{
+		int answer = urinals.countUrinals("1000100010001000100001");
+		assertEquals(-1,answer);
+		answer = urinals.countUrinals("");
+		assertEquals(-1,answer);
+		answer = urinals.countUrinals("123");
+		assertEquals(-1,answer);
+	}
 }

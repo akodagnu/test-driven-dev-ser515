@@ -5,8 +5,12 @@ public class urinals {
 	static int countUrinals(String s)
 	{
 		int c = 0;
+		if(s.length()>20 || s.length()==0)
+			return -1;
 		for(int i=1;i<s.length()-1;i++)
 		{
+			if(s.charAt(i)!='0' && s.charAt(i)!='1')
+				return -1;
 			if(s.charAt(i)=='0' && s.charAt(i-1)=='0' && s.charAt(i+1)=='0')
 				c++;
 			if(s.charAt(i)=='1' && (s.charAt(i-1)=='1' ||s.charAt(i+1)=='1'))
