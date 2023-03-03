@@ -19,9 +19,20 @@ public class urinals {
 		return c;
 	}
 	
-	static void usingKeyboard()
+	static void usingKeyboard() throws IOException
 	{
-		System.out.println("Not yet implemented");
+		System.out.println("(Enter -1 to stop data entry)");
+		BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter values: ");
+		String input = b.readLine()
+;		while(!input.equals("-1"))
+		{
+			System.out.println("The count is:");
+			System.out.println(countUrinals(input));
+			System.out.println("Enter values: ");
+			input = b.readLine();
+		}
+		System.out.println("Done");
 	}
 	
 	static void usingFile() throws IOException
@@ -61,9 +72,10 @@ public class urinals {
 		FileWriter writer = new FileWriter(out);
 		String st;
 		int count;
-		//writer.write("");
 		while((st=fileReader.readLine())!= null)
 		{
+			if(st.equals("-1"))
+				break;
 			count = countUrinals(st);
 			writer.write(Integer.toString(count)+System.lineSeparator());
 		}
