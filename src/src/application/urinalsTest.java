@@ -3,7 +3,9 @@ package application;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,12 @@ class urinalsTest {
 	void inputFileValidTest() throws IOException {
 		// This test checks if the input file exists at the path entered.
 		assertDoesNotThrow(()->{urinals.usingFile();});
+		File file = new File(System.getProperty("user.dir")+"\\src\\urinal.dat");
+		BufferedReader fileReader = new BufferedReader(new FileReader(file));
+		System.out.println(fileReader.readLine());
+		// CHecks if input file is null
+		assertNotEquals(null,fileReader.readLine());
+		fileReader.close();
 	}
 	
 	@Test
